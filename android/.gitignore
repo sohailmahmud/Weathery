@@ -1,0 +1,30 @@
+# Eclipse IDE
+.project
+.classpath
+.settings
+.buildpath
+*.iml
+
+# Gradle
+/.gradle/
+/build/
+gradle-wrapper.jar
+
+# Android
+/captures/
+/gradlew
+/gradlew.bat
+/local.properties
+GeneratedPluginRegistrant.java
+
+# Keys
+key.properties
+**/*.keystore
+**/*.jks
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
