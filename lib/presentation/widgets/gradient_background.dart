@@ -15,14 +15,11 @@ class GradientBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       constraints: const BoxConstraints.expand(),
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [
-            AppColors.morphismDark,
-            AppColors.morphismMedium,
-          ],
+          colors: colors,
         ),
       ),
       child: Stack(

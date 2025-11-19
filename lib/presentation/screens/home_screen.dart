@@ -4,8 +4,8 @@ import 'package:weatherapp/presentation/controllers/weather_controller.dart';
 import 'package:weatherapp/core/theme/app_colors.dart';
 import 'package:weatherapp/presentation/widgets/widgets.dart';
 
-const Color _blueLight = AppColors.morphismLight;
-const Color _blueLighter = AppColors.morphismAccent;
+const Color _blueLight = AppColors.morphismDark;
+const Color _blueLighter = AppColors.morphismMedium;
 const Color _redLight = AppColors.errorLight;
 const Color _redLighter = AppColors.errorLight2;
 

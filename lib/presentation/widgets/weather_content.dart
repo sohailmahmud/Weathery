@@ -4,6 +4,7 @@ import 'white_text.dart';
 import 'temperature_display.dart';
 import 'details_card.dart';
 import 'refresh_button.dart';
+import 'custom_weather_icon.dart';
 
 class WeatherContent extends StatelessWidget {
   final WeatherController controller;
@@ -53,15 +54,11 @@ class WeatherContent extends StatelessWidget {
                 child: Column(
                   children: [
                     SizedBox(height: spacing32),
-                    Image.network(
-                      controller.getWeatherIconUrl(data.iconCode),
-                      width: iconSize,
-                      height: iconSize,
-                      errorBuilder: (_, __, ___) => Icon(
-                        Icons.cloud,
-                        size: iconSize,
-                        color: Colors.white.withValues(alpha: 0.4),
-                      ),
+                    CustomWeatherIcon(
+                      iconCode: data.iconCode,
+                      size: iconSize,
+                      iconUrl: controller.getWeatherIconUrl(data.iconCode),
+                      useCustomIcon: true,
                     ),
                     SizedBox(height: spacing24),
                     TemperatureDisplay(
