@@ -1117,7 +1117,7 @@ WeatherIconMapper.getDescriptionForCode('11n')  // Returns "Thunderstorm (Night)
 ```
 
 Supports all 18 OpenWeatherMap icon variations with semantic colors and descriptions.
-````
+
 
 ### Data Flow Diagram
 
