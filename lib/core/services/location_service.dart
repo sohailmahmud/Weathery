@@ -62,9 +62,10 @@ class LocationService {
 
     try {
       return await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high,
-        timeLimit: const Duration(seconds: 10),
-      );
+        locationSettings: const LocationSettings(
+          accuracy: LocationAccuracy.high,
+        ),
+      ).timeout(const Duration(seconds: 10));
     } catch (e) {
       throw LocationPermissionException(
         message: 'Failed to get your location. Please try again.',
