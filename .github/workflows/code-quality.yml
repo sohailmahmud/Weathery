@@ -30,8 +30,8 @@ jobs:
       - name: Check code formatting
         run: dart format --set-exit-if-changed lib test
 
-      - name: Check for unused code
-        run: dart pub global activate unused && dart pub global run unused
+      - name: Run dart fix
+        run: dart fix --dry-run
 
       - name: Run tests with coverage
         run: flutter test --coverage --verbose
@@ -48,13 +48,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Dart
-        uses: dart-lang/setup-dart@v1
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
         with:
-          sdk: stable
+          flutter-version: '3.38.0'
+          channel: 'stable'
 
-      - name: Install dependencies
-        run: dart pub get
+      - name: Get dependencies
+        run: flutter pub get
 
       - name: Run security audit
         run: dart pub global activate pana && pana --exit-code-threshold 0
