@@ -1,0 +1,44 @@
+name: Lint & Format
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  lint-and-format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 'latest'
+          channel: 'stable'
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Check code format
+        run: dart format --set-exit-if-changed lib test
+
+      - name: Run linter
+        run: flutter analyze
+
+      - name: Check for TODOs
+        run: grep -r "TODO\|FIXME" lib --include="*.dart" || echo "No TODOs or FIXMEs found"
+
+      - name: Comment on PR if formatting issues exist
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '⚠️ Code formatting or linting issues detected. Please run `dart format` and `flutter analyze` locally.'
+            })

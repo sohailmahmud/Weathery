@@ -1,0 +1,36 @@
+name: Dependency Check
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    - cron: '0 0 * * 0'  # Weekly on Sundays
+
+jobs:
+  check-dependencies:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 'latest'
+          channel: 'stable'
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Check for outdated packages
+        run: flutter pub outdated || true
+
+      - name: Check pubspec.lock
+        run: flutter pub upgrade --dry-run
+
+      - name: Verify pub.dev health
+        run: |
+          flutter pub global activate pana
+          pana --exit-code-threshold 50 || true
