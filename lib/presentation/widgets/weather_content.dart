@@ -5,11 +5,11 @@ import 'temperature_display.dart';
 import 'details_card.dart';
 import 'refresh_button.dart';
 
-class WeatherContentSliver extends StatelessWidget {
+class WeatherContent extends StatelessWidget {
   final WeatherController controller;
   final dynamic data;
 
-  const WeatherContentSliver({
+  const WeatherContent({
     super.key,
     required this.controller,
     required this.data,
