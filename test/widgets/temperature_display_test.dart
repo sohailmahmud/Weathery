@@ -4,7 +4,9 @@ import 'package:weatherapp/presentation/widgets/temperature_display.dart';
 
 void main() {
   group('TemperatureDisplay Widget', () {
-    testWidgets('displays temperature value correctly', (WidgetTester tester) async {
+    testWidgets('displays temperature value correctly', (
+      WidgetTester tester,
+    ) async {
       const temperature = 25.0;
       const tempSize = 100.0;
       const degreeSize = 50.0;
@@ -43,7 +45,9 @@ void main() {
       expect(find.text('-6'), findsOneWidget);
     });
 
-    testWidgets('displays decimal temperature correctly', (WidgetTester tester) async {
+    testWidgets('displays decimal temperature correctly', (
+      WidgetTester tester,
+    ) async {
       const temperature = 18.7;
 
       await tester.pumpWidget(
@@ -77,8 +81,9 @@ void main() {
       expect(find.byType(Row), findsOneWidget);
     });
 
-    testWidgets('temperature and degree have correct alignment',
-        (WidgetTester tester) async {
+    testWidgets('temperature and degree have correct alignment', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(

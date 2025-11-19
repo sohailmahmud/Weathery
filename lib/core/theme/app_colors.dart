@@ -27,4 +27,3 @@ class AppColors {
   static const Color black = Colors.black;
   static const Color transparent = Colors.transparent;
 }
-

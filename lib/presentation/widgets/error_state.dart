@@ -25,13 +25,17 @@ class ErrorState extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  isPermanentlyDenied ? Icons.location_disabled : Icons.cloud_off,
+                  isPermanentlyDenied
+                      ? Icons.location_disabled
+                      : Icons.cloud_off,
                   size: iconSize,
                   color: Colors.white,
                 ),
                 SizedBox(height: spacing),
                 Text(
-                  isPermanentlyDenied ? 'Location Permission Denied' : 'Unable to Load Weather',
+                  isPermanentlyDenied
+                      ? 'Location Permission Denied'
+                      : 'Unable to Load Weather',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: titleSize,
@@ -64,11 +68,18 @@ class ErrorState extends StatelessWidget {
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            const Icon(Icons.settings, color: Colors.white, size: 20),
+                            const Icon(
+                              Icons.settings,
+                              color: Colors.white,
+                              size: 20,
+                            ),
                             SizedBox(width: spacing / 4),
                             Text(
                               'Open Settings',
-                              style: TextStyle(color: Colors.white, fontSize: textSize),
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: textSize,
+                              ),
                             ),
                           ],
                         ),

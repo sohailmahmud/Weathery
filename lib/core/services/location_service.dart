@@ -21,7 +21,8 @@ class LocationService {
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
       throw LocationPermissionException(
-        message: 'Location services are disabled. Please enable them in settings.',
+        message:
+            'Location services are disabled. Please enable them in settings.',
         needsSettings: true,
       );
     }
@@ -36,7 +37,8 @@ class LocationService {
     // If permanently denied, ask user to go to settings
     if (permission == LocationPermission.deniedForever) {
       throw LocationPermissionException(
-        message: 'Location permission is permanently denied. Please enable it in app settings.',
+        message:
+            'Location permission is permanently denied. Please enable it in app settings.',
         isPermanentlyDenied: true,
         needsSettings: true,
       );
@@ -45,7 +47,8 @@ class LocationService {
     // If still denied after request, show message
     if (permission == LocationPermission.denied) {
       throw LocationPermissionException(
-        message: 'Location permission is required to display weather. Please grant it.',
+        message:
+            'Location permission is required to display weather. Please grant it.',
         isPermanentlyDenied: false,
       );
     }

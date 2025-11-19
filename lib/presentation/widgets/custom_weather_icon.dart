@@ -36,11 +36,7 @@ class CustomWeatherIcon extends StatelessWidget {
         color: color.withValues(alpha: 0.1),
       ),
       padding: const EdgeInsets.all(16),
-      child: Icon(
-        icon,
-        size: size,
-        color: color,
-      ),
+      child: Icon(icon, size: size, color: color),
     );
   }
 

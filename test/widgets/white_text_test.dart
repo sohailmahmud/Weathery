@@ -8,11 +8,7 @@ void main() {
       const testText = 'Test Weather';
 
       await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(
-            body: WhiteText(testText),
-          ),
-        ),
+        const MaterialApp(home: Scaffold(body: WhiteText(testText))),
       );
 
       expect(find.text(testText), findsOneWidget);
@@ -23,14 +19,9 @@ void main() {
       const testSize = 32.0;
 
       await tester.pumpWidget(
-        MaterialApp(
+        const MaterialApp(
           home: Scaffold(
-            body: WhiteText(
-              testText,
-              size: testSize,
-              bold: true,
-              opacity: 0.8,
-            ),
+            body: WhiteText(testText, size: testSize, bold: true, opacity: 0.8),
           ),
         ),
       );
@@ -45,20 +36,18 @@ void main() {
 
     testWidgets('renders with default opacity', (WidgetTester tester) async {
       await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(
-            body: WhiteText('Test'),
-          ),
-        ),
+        const MaterialApp(home: Scaffold(body: WhiteText('Test'))),
       );
 
       final textWidget = find.byType(Text);
       expect(textWidget, findsOneWidget);
     });
 
-    testWidgets('supports both bold and non-bold text', (WidgetTester tester) async {
+    testWidgets('supports both bold and non-bold text', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(
-        MaterialApp(
+        const MaterialApp(
           home: Scaffold(
             body: Column(
               children: [

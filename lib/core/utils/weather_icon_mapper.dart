@@ -7,35 +7,27 @@ class WeatherIconMapper {
     // Clear sky
     '01d': Icons.wb_sunny, // clear sky day
     '01n': Icons.nights_stay, // clear sky night
-
     // Few clouds
     '02d': Icons.wb_sunny, // few clouds day
     '02n': Icons.nights_stay, // few clouds night
-
     // Scattered clouds
     '03d': Icons.cloud, // scattered clouds day
     '03n': Icons.cloud, // scattered clouds night
-
     // Broken clouds
     '04d': Icons.cloud, // overcast clouds day
     '04n': Icons.cloud, // overcast clouds night
-
     // Shower rain
     '09d': Icons.grain, // shower rain day
     '09n': Icons.grain, // shower rain night
-
     // Rain
     '10d': Icons.cloud_queue, // rain day
     '10n': Icons.cloud_queue, // rain night
-
     // Thunderstorm
     '11d': Icons.flash_on, // thunderstorm day
     '11n': Icons.flash_on, // thunderstorm night
-
     // Snow
     '13d': Icons.ac_unit, // snow day
     '13n': Icons.ac_unit, // snow night
-
     // Mist/Fog
     '50d': Icons.cloud, // mist day
     '50n': Icons.cloud, // mist night

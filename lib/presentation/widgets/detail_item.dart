@@ -32,7 +32,11 @@ class DetailItem extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Icon(icon, color: AppColors.white.withValues(alpha: 0.7), size: iconSize),
+          Icon(
+            icon,
+            color: AppColors.white.withValues(alpha: 0.7),
+            size: iconSize,
+          ),
           SizedBox(height: spacing),
           Text(
             label,

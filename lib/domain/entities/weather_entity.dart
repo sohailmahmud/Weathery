@@ -25,14 +25,14 @@ class WeatherEntity extends Equatable {
 
   @override
   List<Object?> get props => [
-        cityName,
-        temperature,
-        condition,
-        iconCode,
-        minTemp,
-        maxTemp,
-        latitude,
-        longitude,
-        timestamp,
-      ];
+    cityName,
+    temperature,
+    condition,
+    iconCode,
+    minTemp,
+    maxTemp,
+    latitude,
+    longitude,
+    timestamp,
+  ];
 }

@@ -67,7 +67,11 @@ class WeatherContent extends StatelessWidget {
                       degreeSize: degreeSize,
                     ),
                     SizedBox(height: spacing8),
-                    WhiteText(data.condition, size: conditionSize, opacity: 0.95),
+                    WhiteText(
+                      data.condition,
+                      size: conditionSize,
+                      opacity: 0.95,
+                    ),
                     SizedBox(height: spacing8),
                     WhiteText(
                       'High: ${data.maxTemp.toStringAsFixed(0)}°  Low: ${data.minTemp.toStringAsFixed(0)}°',
@@ -78,7 +82,10 @@ class WeatherContent extends StatelessWidget {
                     SizedBox(height: spacing48),
                     DetailsCard(data: data, isSmallScreen: isSmallScreen),
                     SizedBox(height: spacing32),
-                    RefreshButton(controller: controller, isSmallScreen: isSmallScreen),
+                    RefreshButton(
+                      controller: controller,
+                      isSmallScreen: isSmallScreen,
+                    ),
                     const SizedBox(height: 200),
                   ],
                 ),

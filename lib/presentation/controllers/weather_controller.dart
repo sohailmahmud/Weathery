@@ -29,7 +29,7 @@ class WeatherController extends GetxController {
 
       // user's actual current location
       final position = await LocationService.getCurrentLocation();
-      
+
       final weatherData = await getWeatherUseCase(
         latitude: position.latitude,
         longitude: position.longitude,

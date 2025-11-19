@@ -21,7 +21,9 @@ class HomeScreen extends GetView<WeatherController> {
           if (controller.isLoading.value) {
             return const GradientBackground(
               colors: [_blueLight, _blueLighter],
-              child: Center(child: CircularProgressIndicator(color: Colors.white)),
+              child: Center(
+                child: CircularProgressIndicator(color: Colors.white),
+              ),
             );
           }
 
@@ -36,7 +38,9 @@ class HomeScreen extends GetView<WeatherController> {
           if (data == null) {
             return const GradientBackground(
               colors: [_blueLight, _blueLighter],
-              child: Center(child: Text('No data', style: TextStyle(color: Colors.white))),
+              child: Center(
+                child: Text('No data', style: TextStyle(color: Colors.white)),
+              ),
             );
           }
 

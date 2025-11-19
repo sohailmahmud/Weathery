@@ -33,7 +33,10 @@ class RefreshButton extends StatelessWidget {
           onTap: () => controller.fetchWeather(),
           borderRadius: BorderRadius.circular(12),
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: vPadding, horizontal: hPadding),
+            padding: EdgeInsets.symmetric(
+              vertical: vPadding,
+              horizontal: hPadding,
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

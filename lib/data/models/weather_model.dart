@@ -98,10 +98,7 @@ class CoordData {
   final double lon;
   final double lat;
 
-  CoordData({
-    required this.lon,
-    required this.lat,
-  });
+  CoordData({required this.lon, required this.lat});
 
   factory CoordData.fromJson(Map<String, dynamic> json) =>
       _$CoordDataFromJson(json);
