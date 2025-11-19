@@ -244,35 +244,12 @@ flutter run -d web-server        # Web (experimental)
 ```
 
 # 5. Start the app
+
+```
 flutter run
 ```
 
 That's it! It'll ask for location permission, grab the weather, and show it to you.
-
-### If Something Goes Wrong
-
-| What Happened | How To Fix It |
-|---------|----------|
-| "Flutter not found" | Add Flutter to your PATH: `export PATH="$PATH:$HOME/flutter/bin"` |
-| "Build fails" | Clean and reinstall: `flutter clean && flutter pub get` |
-| "Weird code generation error" | Force rebuild: `dart run build_runner build --delete-conflicting-outputs` |
-| "Emulator says no location" | Go into emulator settings and manually turn on location |
-| "Can't reach the weather service" | Check your internet, or make sure you have a valid API key |
-
-### Use Your Own API Key (If You Want)
-
-1. Go to [OpenWeatherMap](https://openweathermap.org/api) and grab a free key
-2. Open `lib/data/datasources/remote_weather_datasource_impl.dart`
-3. Find the line: `static const String apiKey = 'YOUR_API_KEY_HERE';` and replace it with your key
-
-### Running On Different Devices
-
-```bash
-flutter run -d emulator-5554     # Android Emulator
-flutter run -d iPhone-14         # iPhone Simulator
-flutter run                      # Physical phone (auto-detects)
-flutter run -d web-server        # Web browser (experimental)
-```
 
 ---
 
