@@ -12,7 +12,7 @@ void main() {
       const degreeSize = 50.0;
 
       await tester.pumpWidget(
-        MaterialApp(
+        const MaterialApp(
           home: Scaffold(
             body: TemperatureDisplay(
               temperature: temperature,
@@ -31,7 +31,7 @@ void main() {
       const temperature = -5.5;
 
       await tester.pumpWidget(
-        MaterialApp(
+        const MaterialApp(
           home: Scaffold(
             body: TemperatureDisplay(
               temperature: temperature,
@@ -51,7 +51,7 @@ void main() {
       const temperature = 18.7;
 
       await tester.pumpWidget(
-        MaterialApp(
+        const MaterialApp(
           home: Scaffold(
             body: TemperatureDisplay(
               temperature: temperature,
@@ -67,7 +67,7 @@ void main() {
 
     testWidgets('renders as a Row', (WidgetTester tester) async {
       await tester.pumpWidget(
-        MaterialApp(
+        const MaterialApp(
           home: Scaffold(
             body: TemperatureDisplay(
               temperature: 20.0,
@@ -85,7 +85,7 @@ void main() {
       WidgetTester tester,
     ) async {
       await tester.pumpWidget(
-        MaterialApp(
+        const MaterialApp(
           home: Scaffold(
             body: TemperatureDisplay(
               temperature: 22.0,

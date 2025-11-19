@@ -38,8 +38,8 @@ void main() {
     });
 
     test('getWeatherIconUrl returns correct URL format', () {
-      final iconCode = '01d';
-      final expectedUrl = 'https://openweathermap.org/img/wn/01d@4x.png';
+      const iconCode = '01d';
+      const expectedUrl = 'https://openweathermap.org/img/wn/01d@4x.png';
 
       expect(weatherController.getWeatherIconUrl(iconCode), expectedUrl);
     });
