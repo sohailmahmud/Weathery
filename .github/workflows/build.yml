@@ -36,7 +36,7 @@ jobs:
 
   build-ios:
     runs-on: macos-latest
-    name: Build iOS IPA
+    name: Build iOS App
 
     steps:
       - uses: actions/checkout@v4
@@ -50,28 +50,11 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
 
-      - name: Build iOS
-        run: flutter build ios --no-codesign
+      - name: Build iOS (no code sign)
+        run: flutter build ios --no-codesign --release
 
-      - name: Create iOS Build Archive
-        run: |
-          cd ios
-          xcodebuild -workspace Runner.xcworkspace \
-            -scheme Runner \
-            -configuration Release \
-            -derivedDataPath build \
-            -archivePath build/Runner.xcarchive \
-            archive
-
-      - name: Export IPA
-        run: |
-          xcodebuild -exportArchive \
-            -archivePath ios/build/Runner.xcarchive \
-            -exportOptionsPlist ios/ExportOptions.plist \
-            -exportPath ios/build/ipa
-
-      - name: Upload IPA
+      - name: Upload iOS build
         uses: actions/upload-artifact@v4
         with:
-          name: ios-ipa
-          path: ios/build/ipa/
+          name: ios-build
+          path: build/ios/iphoneos/
