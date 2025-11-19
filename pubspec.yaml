@@ -1,7 +1,9 @@
 name: weatherapp
-description: "A new Flutter project."
+description: "A beautiful and responsive Flutter weather application that displays real-time weather conditions, forecasts, and location-based weather data with an intuitive user interface and smooth animations."
 publish_to: 'none'
 version: 1.0.0+1
+homepage: https://github.com/sohailmahmud/Weathery
+repository: https://github.com/sohailmahmud/Weathery
 
 environment:
   sdk: '>=3.8.0 <4.0.0'
