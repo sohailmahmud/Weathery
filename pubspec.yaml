@@ -20,7 +20,7 @@ dependencies:
   dio: ^5.3.1
 
   # Location Services
-  geolocator: ^11.0.0
+  geolocator: ^14.0.2
 
   # JSON Serialization
   json_annotation: ^4.9.0
