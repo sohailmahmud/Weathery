@@ -58,7 +58,6 @@ class WeatherContent extends StatelessWidget {
                       iconCode: data.iconCode,
                       size: iconSize,
                       iconUrl: controller.getWeatherIconUrl(data.iconCode),
-                      useCustomIcon: true,
                     ),
                     SizedBox(height: spacing24),
                     TemperatureDisplay(

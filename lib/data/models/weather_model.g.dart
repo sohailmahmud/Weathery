@@ -29,16 +29,12 @@ MainData _$MainDataFromJson(Map<String, dynamic> json) => MainData(
   temp: (json['temp'] as num).toDouble(),
   tempMin: (json['temp_min'] as num).toDouble(),
   tempMax: (json['temp_max'] as num).toDouble(),
-  humidity: (json['humidity'] as num).toInt(),
-  pressure: (json['pressure'] as num).toInt(),
 );
 
 Map<String, dynamic> _$MainDataToJson(MainData instance) => <String, dynamic>{
   'temp': instance.temp,
   'temp_min': instance.tempMin,
   'temp_max': instance.tempMax,
-  'humidity': instance.humidity,
-  'pressure': instance.pressure,
 };
 
 WeatherData _$WeatherDataFromJson(Map<String, dynamic> json) => WeatherData(

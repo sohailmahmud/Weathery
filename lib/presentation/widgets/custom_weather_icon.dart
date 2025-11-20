@@ -1,63 +1,62 @@
 import 'package:flutter/material.dart';
-import 'package:weatherapp/core/utils/weather_icon_mapper.dart';
 
-/// A custom weather icon widget that displays weather based on icon code
-/// Uses Material Design icons as primary display with fallback to API images
+/// A weather icon widget that displays icons from OpenWeatherMap API
 class CustomWeatherIcon extends StatelessWidget {
   final String iconCode;
   final double size;
   final String? iconUrl;
-  final bool useCustomIcon;
 
   const CustomWeatherIcon({
     super.key,
     required this.iconCode,
     this.size = 150.0,
     this.iconUrl,
-    this.useCustomIcon = true,
   });
 
   @override
   Widget build(BuildContext context) {
-    if (useCustomIcon) {
-      return _buildCustomIcon();
+    if (iconUrl == null) {
+      return SizedBox(
+        width: size,
+        height: size,
+        child: const Center(
+          child: CircularProgressIndicator(color: Colors.white),
+        ),
+      );
     }
-    return _buildApiIcon();
-  }
-
-  /// Build using Material Design custom icons
-  Widget _buildCustomIcon() {
-    final icon = WeatherIconMapper.getIconForCode(iconCode);
-    final color = WeatherIconMapper.getColorForCode(iconCode);
 
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         shape: BoxShape.circle,
-        color: color.withValues(alpha: 0.1),
+        color: Colors.white10,
       ),
-      padding: const EdgeInsets.all(16),
-      child: Icon(icon, size: size, color: color),
+      child: Image.network(
+        iconUrl!,
+        width: size,
+        height: size,
+        fit: BoxFit.contain,
+        errorBuilder: (_, __, ___) => _buildErrorIcon(),
+        loadingBuilder: (_, child, progress) {
+          if (progress == null) return child;
+          return SizedBox(
+            width: size,
+            height: size,
+            child: const Center(
+              child: CircularProgressIndicator(color: Colors.white),
+            ),
+          );
+        },
+      ),
     );
   }
 
-  /// Build using OpenWeatherMap API images
-  Widget _buildApiIcon() {
-    if (iconUrl == null) return _buildCustomIcon();
-
-    return Image.network(
-      iconUrl!,
+  Widget _buildErrorIcon() {
+    return SizedBox(
       width: size,
       height: size,
-      fit: BoxFit.contain,
-      errorBuilder: (_, __, ___) => _buildCustomIcon(),
-      loadingBuilder: (_, child, progress) {
-        if (progress == null) return child;
-        return SizedBox(
-          width: size,
-          height: size,
-          child: const CircularProgressIndicator(color: Colors.white),
-        );
-      },
+      child: Center(
+        child: Icon(Icons.cloud, size: size * 0.5, color: Colors.white70),
+      ),
     );
   }
 }

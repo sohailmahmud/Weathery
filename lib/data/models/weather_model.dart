@@ -34,11 +34,30 @@ class WeatherModel {
   Map<String, dynamic> toJson() => _$WeatherModelToJson(this);
 
   WeatherEntity toEntity() {
+    if (weather.isEmpty) {
+      return WeatherEntity(
+        cityName: cityName,
+        temperature: main.temp,
+        condition: 'Unknown',
+        iconCode: '01d',
+        minTemp: main.tempMin,
+        maxTemp: main.tempMax,
+        latitude: coord.lat,
+        longitude: coord.lon,
+        timestamp: timestamp,
+      );
+    }
+
+    final weatherData = weather[0];
+
+    // Use the main field from API response (e.g., "Clear", "Clouds", "Rain", "Thunderstorm", "Snow")
+    final condition = weatherData.main;
+
     return WeatherEntity(
       cityName: cityName,
       temperature: main.temp,
-      condition: weather.isNotEmpty ? weather[0].main : 'Unknown',
-      iconCode: weather.isNotEmpty ? weather[0].icon : '01d',
+      condition: condition,
+      iconCode: weatherData.icon,
       minTemp: main.tempMin,
       maxTemp: main.tempMax,
       latitude: coord.lat,
@@ -58,16 +77,7 @@ class MainData {
   @JsonKey(name: 'temp_max')
   final double tempMax;
 
-  final int humidity;
-  final int pressure;
-
-  MainData({
-    required this.temp,
-    required this.tempMin,
-    required this.tempMax,
-    required this.humidity,
-    required this.pressure,
-  });
+  MainData({required this.temp, required this.tempMin, required this.tempMax});
 
   factory MainData.fromJson(Map<String, dynamic> json) =>
       _$MainDataFromJson(json);
